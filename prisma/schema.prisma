@@ -1,0 +1,123 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("coach") // "admin" | "coach"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Player {
+  id            String              @id @default(cuid())
+  firstName     String
+  lastName      String
+  jerseyNumber  Int
+  positions     String              // comma-separated: "SS,2B,P"
+  active        Boolean             @default(true)
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
+  attendance    Attendance[]
+  playerOfGames PlayerOfTheGame[]
+  availability  PlayerAvailability[]
+}
+
+model Event {
+  id          String            @id @default(cuid())
+  type        String            // "game" | "practice" | "tournament"
+  title       String
+  date        DateTime
+  time        String            // "6:00 PM"
+  location    String
+  fieldName   String?
+  opponent    String?           // for games
+  homeAway    String?           // "home" | "away"
+  result      String?           // "W 8-3" or "L 2-5"
+  notes       String?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  attendance  Attendance[]
+  playerOfGame PlayerOfTheGame?
+}
+
+model Attendance {
+  id        String   @id @default(cuid())
+  playerId  String
+  eventId   String
+  status    String   @default("pending") // "present" | "absent" | "pending"
+  player    Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([playerId, eventId])
+}
+
+model PlayerOfTheGame {
+  id       String @id @default(cuid())
+  playerId String
+  eventId  String @unique
+  reason   String?
+  player   Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  event    Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model PlayerAvailability {
+  id        String   @id @default(cuid())
+  playerId  String
+  eventDate DateTime
+  available Boolean  @default(true)
+  note      String?
+  player    Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@unique([playerId, eventDate])
+}
+
+model PracticePlan {
+  id        String             @id @default(cuid())
+  date      DateTime
+  title     String
+  focus     String?            // "Hitting" | "Fielding" | "Pitching" | "General"
+  notes     String?
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+  drills    PracticePlanDrill[]
+}
+
+model Drill {
+  id          String             @id @default(cuid())
+  name        String
+  duration    Int                // minutes
+  skillFocus  String             // "Hitting" | "Fielding" | "Pitching" | "Baserunning" | "Conditioning"
+  description String?
+  createdAt   DateTime           @default(now())
+  plans       PracticePlanDrill[]
+}
+
+model PracticePlanDrill {
+  id             String       @id @default(cuid())
+  practicePlanId String
+  drillId        String
+  order          Int
+  practicePlan   PracticePlan @relation(fields: [practicePlanId], references: [id], onDelete: Cascade)
+  drill          Drill        @relation(fields: [drillId], references: [id], onDelete: Cascade)
+
+  @@unique([practicePlanId, drillId])
+}
+
+model MessageTemplate {
+  id        String   @id @default(cuid())
+  type      String   // "game_reminder" | "weather_change" | "schedule_update" | "general"
+  name      String
+  subject   String
+  body      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
