@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/db";
 import ScheduleFilter from "@/components/ScheduleFilter";
 
+export const dynamic = "force-dynamic";
+
 export default async function SchedulePage() {
   const events = await prisma.event.findMany({
     orderBy: { date: "asc" },

@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/db";
 import PracticePlanCard from "@/components/PracticePlanCard";
 
+export const dynamic = "force-dynamic";
+
 export default async function PracticePlansPage() {
   const plans = await prisma.practicePlan.findMany({
     orderBy: { date: "desc" },

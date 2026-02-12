@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/db";
 import AdminPlayerOfGame from "@/components/AdminPlayerOfGame";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminPlayerOfGamePage() {
   const [gamesWithoutPOG, players] = await Promise.all([
     prisma.event.findMany({

@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/db";
 import AdminAttendance from "@/components/AdminAttendance";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminAttendancePage() {
   const [events, players] = await Promise.all([
     prisma.event.findMany({

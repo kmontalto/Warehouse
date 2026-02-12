@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/db";
 import AdminEvents from "@/components/AdminEvents";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminEventsPage() {
   const events = await prisma.event.findMany({
     orderBy: { date: "desc" },

@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/db";
 import AdminPlayers from "@/components/AdminPlayers";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminPlayersPage() {
   const players = await prisma.player.findMany({
     orderBy: { jerseyNumber: "asc" },

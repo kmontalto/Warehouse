@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/db";
 import MessageGenerator from "@/components/MessageGenerator";
 
+export const dynamic = "force-dynamic";
+
 export default async function MessagesPage() {
   const templates = await prisma.messageTemplate.findMany({
     orderBy: { name: "asc" },

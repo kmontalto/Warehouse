@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/db";
 import AdminPracticePlans from "@/components/AdminPracticePlans";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminPracticePlansPage() {
   const [plans, drills] = await Promise.all([
     prisma.practicePlan.findMany({
