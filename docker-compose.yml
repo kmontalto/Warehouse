@@ -1,0 +1,17 @@
+services:
+  warehouse:
+    build: .
+    container_name: warehouse-10u
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      # Persist the SQLite database outside the container
+      # so your data survives container rebuilds
+      - warehouse-data:/app/data
+    environment:
+      - DATABASE_URL=file:/app/data/warehouse.db
+      - NODE_ENV=production
+
+volumes:
+  warehouse-data:
