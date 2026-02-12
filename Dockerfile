@@ -4,6 +4,9 @@ FROM node:22-alpine AS base
 FROM base AS builder
 WORKDIR /app
 
+# Install OpenSSL so Prisma can detect the correct engine (OpenSSL 3.x)
+RUN apk add --no-cache openssl
+
 # Install dependencies first (better caching)
 COPY package.json package-lock.json ./
 RUN npm ci
@@ -21,6 +24,9 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV PORT=3000
+
+# Install OpenSSL for Prisma engine compatibility at runtime
+RUN apk add --no-cache openssl
 
 # Create non-root user for security
 RUN addgroup --system --gid 1001 nodejs
