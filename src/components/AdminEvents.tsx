@@ -40,6 +40,8 @@ export default function AdminEvents({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [syncUrl, setSyncUrl] = useState("");
+  const [syncing, setSyncing] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -155,6 +157,46 @@ export default function AdminEvents({
     setError("");
   };
 
+  const handleSync = async () => {
+    if (!syncUrl.trim()) {
+      setError("Please enter a GameChanger schedule URL");
+      return;
+    }
+    setError("");
+    setSuccess("");
+    setSyncing(true);
+    try {
+      const res = await fetch("/api/events/sync-gamechanger", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: syncUrl.trim() }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Sync failed");
+      }
+      const { summary } = data;
+      setSuccess(
+        `Sync complete! ${summary.created} created, ${summary.updated} updated, ${summary.skipped} unchanged out of ${summary.total} events.`
+      );
+      // Refresh events list
+      const eventsRes = await fetch("/api/events");
+      if (eventsRes.ok) {
+        const refreshed = await eventsRes.json();
+        setEvents(
+          refreshed.map((ev: EventData & { date: string }) => ({
+            ...ev,
+            date: ev.date.split("T")[0],
+          }))
+        );
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Sync failed");
+    } finally {
+      setSyncing(false);
+    }
+  };
+
   const typeBadge = (type: string) => {
     switch (type) {
       case "game":
@@ -170,6 +212,32 @@ export default function AdminEvents({
 
   return (
     <div>
+      {/* GameChanger Sync */}
+      <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8">
+        <h2 className="text-lg font-semibold text-blue-900 mb-4">
+          Sync from GameChanger
+        </h2>
+        <p className="text-sm text-slate-500 mb-3">
+          Import your schedule from GameChanger. Existing events will be matched by date and opponent to avoid duplicates.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <input
+            type="url"
+            value={syncUrl}
+            onChange={(e) => setSyncUrl(e.target.value)}
+            placeholder="https://web.gc.com/teams/.../schedule"
+            className="flex-1 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            onClick={handleSync}
+            disabled={syncing}
+            className="bg-green-700 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-green-600 transition-colors disabled:opacity-50 whitespace-nowrap"
+          >
+            {syncing ? "Syncing..." : "Sync Schedule"}
+          </button>
+        </div>
+      </div>
+
       {/* Form */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8">
         <h2 className="text-lg font-semibold text-blue-900 mb-4">
