@@ -51,9 +51,9 @@ COPY --from=builder /app/package.json ./package.json
 COPY docker-entrypoint.sh ./docker-entrypoint.sh
 RUN chmod 755 docker-entrypoint.sh
 
-# Create data directory for SQLite and give nextjs user ownership
+# Create data directory for SQLite and give nextjs user ownership of app
 RUN mkdir -p /app/data
-RUN chown -R nextjs:nodejs /app/data /app/prisma
+RUN chown -R nextjs:nodejs /app
 
 USER nextjs
 
