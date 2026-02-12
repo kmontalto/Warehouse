@@ -19,7 +19,8 @@ RUN npx prisma generate
 RUN npm run build
 
 # Compile seed script to JS so tsx isn't needed at runtime
-RUN npx esbuild prisma/seed.ts --bundle --platform=node --outfile=prisma/seed.cjs --external:@prisma/client --external:bcryptjs
+# Only @prisma/client is external (available in runner); bcryptjs is bundled in
+RUN npx esbuild prisma/seed.ts --bundle --platform=node --outfile=prisma/seed.cjs --external:@prisma/client
 
 # --- Production stage ---
 FROM base AS runner
