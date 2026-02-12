@@ -18,6 +18,9 @@ COPY . .
 RUN npx prisma generate
 RUN npm run build
 
+# Compile seed script to JS so tsx isn't needed at runtime
+RUN npx esbuild prisma/seed.ts --bundle --platform=node --outfile=prisma/seed.cjs --external:@prisma/client --external:bcryptjs
+
 # --- Production stage ---
 FROM base AS runner
 WORKDIR /app
@@ -41,6 +44,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
+COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
 COPY --from=builder /app/package.json ./package.json
 
 # Copy the startup script (chmod 755 ensures read+exec for all users)

@@ -6,12 +6,12 @@ npx prisma migrate deploy
 
 # Seed the database only if it's empty (first run)
 node -e "
-  const { PrismaClient } = require('.prisma/client');
+  const { PrismaClient } = require('@prisma/client');
   const p = new PrismaClient();
   p.user.count().then(c => {
     if (c === 0) {
       console.log('Empty database detected — seeding...');
-      require('child_process').execSync('npx tsx prisma/seed.ts', { stdio: 'inherit' });
+      require('child_process').execSync('node prisma/seed.cjs', { stdio: 'inherit' });
     } else {
       console.log('Database already has data — skipping seed.');
     }
