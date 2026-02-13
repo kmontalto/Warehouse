@@ -37,7 +37,7 @@ export default async function PracticePlansPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6">
-        <h1 className="text-3xl font-extrabold text-blue-900">Practice Plans</h1>
+        <h1 className="text-3xl font-extrabold text-primary-dark">Practice Plans</h1>
         <p className="mt-1 text-slate-500">
           Organized drills and practice sessions
         </p>

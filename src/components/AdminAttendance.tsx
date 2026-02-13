@@ -145,7 +145,7 @@ export default function AdminAttendance({
     <div>
       {/* Event Selector */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 mb-6">
-        <h2 className="text-lg font-semibold text-blue-900 mb-4">
+        <h2 className="text-lg font-semibold text-primary-dark mb-4">
           Select Event
         </h2>
         <select
@@ -155,7 +155,7 @@ export default function AdminAttendance({
             setSuccess("");
             setError("");
           }}
-          className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
         >
           <option value="">Choose an event...</option>
           {events.map((event) => (
@@ -181,7 +181,7 @@ export default function AdminAttendance({
       {selectedEventId && (
         <div className="bg-white rounded-xl border border-slate-200 p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-blue-900">
+            <h2 className="text-lg font-semibold text-primary-dark">
               {selectedEvent?.title} - Attendance
             </h2>
             <button
@@ -205,8 +205,8 @@ export default function AdminAttendance({
                       className="flex items-center justify-between p-3 border border-slate-100 rounded-lg hover:bg-slate-50"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-blue-900 flex items-center justify-center flex-shrink-0">
-                          <span className="text-xs font-bold text-yellow-400">
+                        <div className="w-8 h-8 rounded-full bg-primary-dark flex items-center justify-center flex-shrink-0">
+                          <span className="text-xs font-bold text-accent">
                             {player.jerseyNumber}
                           </span>
                         </div>
@@ -243,7 +243,7 @@ export default function AdminAttendance({
                 <button
                   onClick={handleSave}
                   disabled={saving}
-                  className="bg-blue-900 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-blue-800 transition-colors disabled:opacity-50"
+                  className="bg-primary-dark text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-primary transition-colors disabled:opacity-50"
                 >
                   {saving ? "Saving..." : "Save Attendance"}
                 </button>

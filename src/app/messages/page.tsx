@@ -19,7 +19,7 @@ export default async function MessagesPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6">
-        <h1 className="text-3xl font-extrabold text-blue-900">Messages</h1>
+        <h1 className="text-3xl font-extrabold text-primary-dark">Messages</h1>
         <p className="mt-1 text-slate-500">
           Generate messages from templates for parents and players
         </p>

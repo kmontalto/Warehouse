@@ -48,15 +48,23 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="bg-blue-900 shadow-lg">
+    <nav className="bg-primary-dark shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Branding */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="text-yellow-400 font-bold text-xl tracking-tight">
-                Warehouse 10U
-              </span>
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="w-9 h-9 rounded-md bg-accent flex items-center justify-center">
+                <span className="text-primary-dark font-extrabold text-lg leading-none">W</span>
+              </div>
+              <div className="flex flex-col leading-tight">
+                <span className="text-white font-bold text-base tracking-tight">
+                  WSA Warriors
+                </span>
+                <span className="text-accent text-[10px] font-semibold tracking-widest uppercase">
+                  10U Command Center
+                </span>
+              </div>
             </Link>
           </div>
 
@@ -68,8 +76,8 @@ export default function Navigation() {
                 href={link.href}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive(link.href)
-                    ? "bg-blue-700 text-white"
-                    : "text-blue-100 hover:bg-blue-800 hover:text-white"
+                    ? "bg-primary text-white"
+                    : "text-red-200 hover:bg-primary hover:text-white"
                 }`}
               >
                 {link.label}
@@ -81,22 +89,22 @@ export default function Navigation() {
           <div className="hidden md:flex md:items-center md:space-x-3">
             {user ? (
               <>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-400 text-blue-900">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-primary-dark">
                   Coach Mode
                 </span>
                 <Link
                   href="/admin"
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     pathname.startsWith("/admin")
-                      ? "bg-blue-700 text-white"
-                      : "text-blue-100 hover:bg-blue-800 hover:text-white"
+                      ? "bg-primary text-white"
+                      : "text-red-200 hover:bg-primary hover:text-white"
                   }`}
                 >
                   Admin
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="px-3 py-2 rounded-md text-sm font-medium text-blue-100 hover:bg-blue-800 hover:text-white transition-colors"
+                  className="px-3 py-2 rounded-md text-sm font-medium text-red-200 hover:bg-primary hover:text-white transition-colors"
                 >
                   Logout
                 </button>
@@ -104,7 +112,7 @@ export default function Navigation() {
             ) : (
               <Link
                 href="/login"
-                className="px-3 py-2 rounded-md text-sm font-medium text-yellow-400 hover:bg-blue-800 hover:text-yellow-300 transition-colors"
+                className="px-3 py-2 rounded-md text-sm font-medium text-accent hover:bg-primary hover:text-accent-light transition-colors"
               >
                 Coach Login
               </Link>
@@ -115,7 +123,7 @@ export default function Navigation() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-800 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-red-200 hover:text-white hover:bg-primary focus:outline-none"
               aria-expanded={mobileMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -135,7 +143,7 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-blue-800">
+        <div className="md:hidden bg-primary">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {links.map((link) => (
               <Link
@@ -144,25 +152,25 @@ export default function Navigation() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                   isActive(link.href)
-                    ? "bg-blue-700 text-white"
-                    : "text-blue-100 hover:bg-blue-700 hover:text-white"
+                    ? "bg-primary-dark text-white"
+                    : "text-red-100 hover:bg-primary-dark hover:text-white"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="border-t border-blue-700 pt-2 mt-2">
+            <div className="border-t border-primary-dark pt-2 mt-2">
               {user ? (
                 <>
                   <div className="px-3 py-2">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-400 text-blue-900">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-primary-dark">
                       Coach Mode
                     </span>
                   </div>
                   <Link
                     href="/admin"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-blue-100 hover:bg-blue-700 hover:text-white"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-red-100 hover:bg-primary-dark hover:text-white"
                   >
                     Admin
                   </Link>
@@ -171,7 +179,7 @@ export default function Navigation() {
                       setMobileMenuOpen(false);
                       handleLogout();
                     }}
-                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-100 hover:bg-blue-700 hover:text-white"
+                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-red-100 hover:bg-primary-dark hover:text-white"
                   >
                     Logout
                   </button>
@@ -180,7 +188,7 @@ export default function Navigation() {
                 <Link
                   href="/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-yellow-400 hover:bg-blue-700 hover:text-yellow-300"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-accent hover:bg-primary-dark hover:text-accent-light"
                 >
                   Coach Login
                 </Link>

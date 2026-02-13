@@ -87,17 +87,20 @@ export default async function DashboardPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Hero Header */}
       <div className="text-center mb-10">
-        <h1 className="text-4xl font-extrabold text-blue-900 tracking-tight">
-          Warehouse 10U Command Center
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-lg bg-primary-dark mb-4">
+          <span className="text-accent font-extrabold text-3xl leading-none">W</span>
+        </div>
+        <h1 className="text-4xl font-extrabold text-primary-dark tracking-tight">
+          WSA Warriors 10U
         </h1>
-        <p className="mt-2 text-lg text-slate-500">
-          Travel Baseball Team Management
+        <p className="mt-2 text-lg text-text-muted">
+          Command Center
         </p>
       </div>
 
       {/* Season Record Card */}
       <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6 mb-8">
-        <h2 className="text-lg font-semibold text-blue-900 mb-4">Season Record</h2>
+        <h2 className="text-lg font-semibold text-primary-dark mb-4">Season Record</h2>
         <div className="grid grid-cols-3 gap-4 text-center">
           <div className="bg-green-50 rounded-lg p-4">
             <div className="text-3xl font-bold text-green-600">{wins}</div>
@@ -118,10 +121,10 @@ export default async function DashboardPage() {
         {/* Upcoming Events */}
         <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-blue-900">Upcoming Events</h2>
+            <h2 className="text-lg font-semibold text-primary-dark">Upcoming Events</h2>
             <Link
               href="/schedule"
-              className="text-sm font-medium text-blue-600 hover:text-blue-800"
+              className="text-sm font-medium text-primary hover:text-primary-dark"
             >
               View all
             </Link>
@@ -174,10 +177,10 @@ export default async function DashboardPage() {
         {/* Recent Results */}
         <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-blue-900">Recent Results</h2>
+            <h2 className="text-lg font-semibold text-primary-dark">Recent Results</h2>
             <Link
               href="/schedule"
-              className="text-sm font-medium text-blue-600 hover:text-blue-800"
+              className="text-sm font-medium text-primary hover:text-primary-dark"
             >
               View all
             </Link>
@@ -201,7 +204,7 @@ export default async function DashboardPage() {
                         {game.opponent && ` vs ${game.opponent}`}
                       </div>
                       {game.playerOfGame && (
-                        <div className="mt-1 inline-flex items-center space-x-1 text-xs text-yellow-600">
+                        <div className="mt-1 inline-flex items-center space-x-1 text-xs text-accent">
                           <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                           </svg>

@@ -262,7 +262,7 @@ export default function AdminPracticePlans({
     <div>
       {/* Form */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8">
-        <h2 className="text-lg font-semibold text-blue-900 mb-4">
+        <h2 className="text-lg font-semibold text-primary-dark mb-4">
           {editingId ? "Edit Practice Plan" : "Create New Practice Plan"}
         </h2>
 
@@ -288,7 +288,7 @@ export default function AdminPracticePlans({
                 value={form.title}
                 onChange={handleChange}
                 required
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="e.g., Pre-Game Hitting Practice"
               />
             </div>
@@ -302,7 +302,7 @@ export default function AdminPracticePlans({
                 value={form.date}
                 onChange={handleChange}
                 required
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
             <div>
@@ -313,7 +313,7 @@ export default function AdminPracticePlans({
                 name="focus"
                 value={form.focus}
                 onChange={handleChange}
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 {FOCUS_OPTIONS.map((f) => (
                   <option key={f} value={f}>
@@ -333,7 +333,7 @@ export default function AdminPracticePlans({
               value={form.notes}
               onChange={handleChange}
               rows={2}
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="Optional notes about this practice..."
             />
           </div>
@@ -408,7 +408,7 @@ export default function AdminPracticePlans({
                       key={sd.drillId}
                       className="flex items-center gap-2 p-2 bg-slate-50 rounded-lg"
                     >
-                      <div className="w-6 h-6 rounded-full bg-blue-900 flex items-center justify-center flex-shrink-0">
+                      <div className="w-6 h-6 rounded-full bg-primary-dark flex items-center justify-center flex-shrink-0">
                         <span className="text-xs font-bold text-white">
                           {index + 1}
                         </span>
@@ -461,7 +461,7 @@ export default function AdminPracticePlans({
             <button
               type="submit"
               disabled={loading}
-              className="bg-blue-900 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-blue-800 transition-colors disabled:opacity-50"
+              className="bg-primary-dark text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-primary transition-colors disabled:opacity-50"
             >
               {loading
                 ? "Saving..."
@@ -484,7 +484,7 @@ export default function AdminPracticePlans({
 
       {/* Existing Plans */}
       <div className="bg-white rounded-xl border border-slate-200 p-6">
-        <h2 className="text-lg font-semibold text-blue-900 mb-4">
+        <h2 className="text-lg font-semibold text-primary-dark mb-4">
           All Practice Plans ({plans.length})
         </h2>
         {plans.length === 0 ? (
@@ -543,7 +543,7 @@ export default function AdminPracticePlans({
                       </button>
                       <button
                         onClick={() => handleEdit(plan)}
-                        className="px-3 py-1 rounded text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 transition-colors"
+                        className="px-3 py-1 rounded text-xs font-medium text-primary bg-blue-50 hover:bg-blue-100 transition-colors"
                       >
                         Edit
                       </button>

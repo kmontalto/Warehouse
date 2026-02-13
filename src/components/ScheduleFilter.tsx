@@ -94,7 +94,7 @@ export default function ScheduleFilter({ events }: { events: EventData[] }) {
             onClick={() => setFilter(tab.key)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
               filter === tab.key
-                ? "bg-blue-900 text-white shadow-sm"
+                ? "bg-primary-dark text-white shadow-sm"
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
             }`}
           >
@@ -111,7 +111,7 @@ export default function ScheduleFilter({ events }: { events: EventData[] }) {
       ) : (
         Object.entries(grouped).map(([month, monthEvents]) => (
           <div key={month} className="mb-8">
-            <h2 className="text-lg font-bold text-blue-900 mb-3 border-b border-slate-200 pb-2">
+            <h2 className="text-lg font-bold text-primary-dark mb-3 border-b border-slate-200 pb-2">
               {month}
             </h2>
             <div className="space-y-3">

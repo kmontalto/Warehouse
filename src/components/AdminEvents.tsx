@@ -214,7 +214,7 @@ export default function AdminEvents({
     <div>
       {/* GameChanger Sync */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8">
-        <h2 className="text-lg font-semibold text-blue-900 mb-4">
+        <h2 className="text-lg font-semibold text-primary-dark mb-4">
           Sync from GameChanger
         </h2>
         <p className="text-sm text-slate-500 mb-3">
@@ -226,7 +226,7 @@ export default function AdminEvents({
             value={syncUrl}
             onChange={(e) => setSyncUrl(e.target.value)}
             placeholder="https://web.gc.com/teams/.../schedule"
-            className="flex-1 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <button
             onClick={handleSync}
@@ -240,7 +240,7 @@ export default function AdminEvents({
 
       {/* Form */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8">
-        <h2 className="text-lg font-semibold text-blue-900 mb-4">
+        <h2 className="text-lg font-semibold text-primary-dark mb-4">
           {editingId ? "Edit Event" : "Create New Event"}
         </h2>
 
@@ -265,7 +265,7 @@ export default function AdminEvents({
                 name="type"
                 value={form.type}
                 onChange={handleChange}
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="game">Game</option>
                 <option value="practice">Practice</option>
@@ -282,7 +282,7 @@ export default function AdminEvents({
                 value={form.title}
                 onChange={handleChange}
                 required
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="e.g., Game vs Tigers"
               />
             </div>
@@ -297,7 +297,7 @@ export default function AdminEvents({
                 value={form.date}
                 onChange={handleChange}
                 required
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
 
@@ -310,7 +310,7 @@ export default function AdminEvents({
                 value={form.time}
                 onChange={handleChange}
                 required
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="e.g., 6:00 PM"
               />
             </div>
@@ -324,7 +324,7 @@ export default function AdminEvents({
                 value={form.location}
                 onChange={handleChange}
                 required
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="e.g., City Park"
               />
             </div>
@@ -337,7 +337,7 @@ export default function AdminEvents({
                 name="fieldName"
                 value={form.fieldName}
                 onChange={handleChange}
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="e.g., Field 3"
               />
             </div>
@@ -354,7 +354,7 @@ export default function AdminEvents({
                   name="opponent"
                   value={form.opponent}
                   onChange={handleChange}
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="e.g., Tigers"
                 />
               </div>
@@ -367,7 +367,7 @@ export default function AdminEvents({
                   name="homeAway"
                   value={form.homeAway}
                   onChange={handleChange}
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="home">Home</option>
                   <option value="away">Away</option>
@@ -382,7 +382,7 @@ export default function AdminEvents({
                   name="result"
                   value={form.result}
                   onChange={handleChange}
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="e.g., W 8-3"
                 />
               </div>
@@ -398,7 +398,7 @@ export default function AdminEvents({
               value={form.notes}
               onChange={handleChange}
               rows={2}
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="Optional notes..."
             />
           </div>
@@ -407,7 +407,7 @@ export default function AdminEvents({
             <button
               type="submit"
               disabled={loading}
-              className="bg-blue-900 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-blue-800 transition-colors disabled:opacity-50"
+              className="bg-primary-dark text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-primary transition-colors disabled:opacity-50"
             >
               {loading
                 ? "Saving..."
@@ -430,7 +430,7 @@ export default function AdminEvents({
 
       {/* Events List */}
       <div className="bg-white rounded-xl border border-slate-200 p-6">
-        <h2 className="text-lg font-semibold text-blue-900 mb-4">
+        <h2 className="text-lg font-semibold text-primary-dark mb-4">
           All Events ({events.length})
         </h2>
         {events.length === 0 ? (
@@ -477,7 +477,7 @@ export default function AdminEvents({
                 <div className="flex items-center space-x-2 flex-shrink-0">
                   <button
                     onClick={() => handleEdit(event)}
-                    className="px-3 py-1 rounded text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 transition-colors"
+                    className="px-3 py-1 rounded text-xs font-medium text-primary bg-red-50 hover:bg-red-100 transition-colors"
                   >
                     Edit
                   </button>

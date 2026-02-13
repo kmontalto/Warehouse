@@ -172,7 +172,7 @@ export default function AdminPlayers({
     <div>
       {/* Form */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8">
-        <h2 className="text-lg font-semibold text-blue-900 mb-4">
+        <h2 className="text-lg font-semibold text-primary-dark mb-4">
           {editingId ? "Edit Player" : "Add New Player"}
         </h2>
 
@@ -198,7 +198,7 @@ export default function AdminPlayers({
                 value={form.firstName}
                 onChange={handleChange}
                 required
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
             <div>
@@ -210,7 +210,7 @@ export default function AdminPlayers({
                 value={form.lastName}
                 onChange={handleChange}
                 required
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
             <div>
@@ -225,7 +225,7 @@ export default function AdminPlayers({
                 value={form.jerseyNumber}
                 onChange={handleChange}
                 required
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
           </div>
@@ -242,7 +242,7 @@ export default function AdminPlayers({
                   onClick={() => togglePosition(pos)}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                     form.positions.includes(pos)
-                      ? "bg-blue-900 text-white"
+                      ? "bg-primary-dark text-white"
                       : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                   }`}
                 >
@@ -256,7 +256,7 @@ export default function AdminPlayers({
             <button
               type="submit"
               disabled={loading}
-              className="bg-blue-900 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-blue-800 transition-colors disabled:opacity-50"
+              className="bg-primary-dark text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-primary transition-colors disabled:opacity-50"
             >
               {loading
                 ? "Saving..."
@@ -279,7 +279,7 @@ export default function AdminPlayers({
 
       {/* Players List */}
       <div className="bg-white rounded-xl border border-slate-200 p-6">
-        <h2 className="text-lg font-semibold text-blue-900 mb-4">
+        <h2 className="text-lg font-semibold text-primary-dark mb-4">
           Roster ({players.filter((p) => p.active).length} active,{" "}
           {players.filter((p) => !p.active).length} inactive)
         </h2>
@@ -297,8 +297,8 @@ export default function AdminPlayers({
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-blue-900 flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm font-bold text-yellow-400">
+                  <div className="w-10 h-10 rounded-full bg-primary-dark flex items-center justify-center flex-shrink-0">
+                    <span className="text-sm font-bold text-accent">
                       {player.jerseyNumber}
                     </span>
                   </div>
@@ -331,7 +331,7 @@ export default function AdminPlayers({
                 <div className="flex items-center space-x-2 flex-shrink-0">
                   <button
                     onClick={() => handleEdit(player)}
-                    className="px-3 py-1 rounded text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 transition-colors"
+                    className="px-3 py-1 rounded text-xs font-medium text-primary bg-blue-50 hover:bg-blue-100 transition-colors"
                   >
                     Edit
                   </button>
@@ -339,7 +339,7 @@ export default function AdminPlayers({
                     onClick={() => handleToggleActive(player)}
                     className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
                       player.active
-                        ? "text-yellow-700 bg-yellow-50 hover:bg-yellow-100"
+                        ? "text-yellow-700 bg-amber-50 hover:bg-yellow-100"
                         : "text-green-700 bg-green-50 hover:bg-green-100"
                     }`}
                   >

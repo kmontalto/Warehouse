@@ -20,7 +20,7 @@ export default async function AdminPlayersPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6">
-        <h1 className="text-3xl font-extrabold text-blue-900">Manage Players</h1>
+        <h1 className="text-3xl font-extrabold text-primary-dark">Manage Players</h1>
         <p className="mt-1 text-slate-500">
           Add, edit, and manage roster players
         </p>

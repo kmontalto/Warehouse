@@ -127,7 +127,7 @@ export default function PracticePlanCard({ plan }: { plan: PracticePlanData }) {
                   key={pd.id}
                   className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg"
                 >
-                  <div className="w-8 h-8 rounded-full bg-blue-900 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-primary-dark flex items-center justify-center flex-shrink-0">
                     <span className="text-sm font-bold text-white">
                       {pd.order}
                     </span>
@@ -162,7 +162,7 @@ export default function PracticePlanCard({ plan }: { plan: PracticePlanData }) {
                 <span className="text-sm font-semibold text-slate-700">
                   Total Duration
                 </span>
-                <span className="text-sm font-bold text-blue-900">
+                <span className="text-sm font-bold text-primary-dark">
                   {totalDuration} minutes
                 </span>
               </div>

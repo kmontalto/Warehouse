@@ -43,14 +43,14 @@ export default function LoginPage() {
         <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="w-16 h-16 rounded-full bg-blue-900 flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-yellow-400">W</span>
+            <div className="w-16 h-16 rounded-lg bg-primary-dark flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-extrabold text-accent">W</span>
             </div>
-            <h1 className="text-2xl font-extrabold text-blue-900">
+            <h1 className="text-2xl font-extrabold text-primary-dark">
               Coach Login
             </h1>
             <p className="mt-1 text-sm text-slate-500">
-              Sign in to access the Warehouse 10U admin panel
+              Sign in to access the WSA Warriors admin panel
             </p>
           </div>
 
@@ -76,7 +76,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                 placeholder="coach@warehouse10u.com"
               />
             </div>
@@ -94,7 +94,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                 placeholder="Enter your password"
               />
             </div>
@@ -102,7 +102,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-900 text-white py-2.5 rounded-lg font-medium text-sm hover:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-primary-dark text-white py-2.5 rounded-lg font-medium text-sm hover:bg-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? "Signing in..." : "Sign In"}
             </button>

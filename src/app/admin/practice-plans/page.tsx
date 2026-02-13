@@ -49,7 +49,7 @@ export default async function AdminPracticePlansPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6">
-        <h1 className="text-3xl font-extrabold text-blue-900">
+        <h1 className="text-3xl font-extrabold text-primary-dark">
           Manage Practice Plans
         </h1>
         <p className="mt-1 text-slate-500">

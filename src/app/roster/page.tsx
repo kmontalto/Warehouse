@@ -17,7 +17,7 @@ export default async function RosterPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6">
-        <h1 className="text-3xl font-extrabold text-blue-900">Roster</h1>
+        <h1 className="text-3xl font-extrabold text-primary-dark">Roster</h1>
         <p className="mt-1 text-slate-500">
           Warehouse 10U Team ({players.length} players)
         </p>
@@ -38,8 +38,8 @@ export default async function RosterPage() {
             >
               {/* Jersey Number */}
               <div className="flex items-center justify-between mb-3">
-                <div className="w-14 h-14 rounded-full bg-blue-900 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-yellow-400">
+                <div className="w-14 h-14 rounded-full bg-primary-dark flex items-center justify-center">
+                  <span className="text-2xl font-bold text-accent">
                     {player.jerseyNumber}
                   </span>
                 </div>
@@ -60,7 +60,7 @@ export default async function RosterPage() {
               </div>
 
               {/* Player Name */}
-              <div className="font-bold text-slate-800 group-hover:text-blue-900 transition-colors">
+              <div className="font-bold text-slate-800 group-hover:text-primary-dark transition-colors">
                 {player.firstName} {player.lastName}
               </div>
 

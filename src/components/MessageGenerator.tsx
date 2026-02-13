@@ -110,13 +110,13 @@ export default function MessageGenerator({
       <div className="space-y-6">
         {/* Template Dropdown */}
         <div className="bg-white rounded-xl border border-slate-200 p-6">
-          <h2 className="text-lg font-semibold text-blue-900 mb-4">
+          <h2 className="text-lg font-semibold text-primary-dark mb-4">
             Select Template
           </h2>
           <select
             value={selectedTemplateId}
             onChange={(e) => handleTemplateChange(e.target.value)}
-            className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
           >
             <option value="">Choose a template...</option>
             {templates.map((t) => (
@@ -130,7 +130,7 @@ export default function MessageGenerator({
         {/* Placeholder Fields */}
         {selectedTemplate && placeholders.length > 0 && (
           <div className="bg-white rounded-xl border border-slate-200 p-6">
-            <h2 className="text-lg font-semibold text-blue-900 mb-4">
+            <h2 className="text-lg font-semibold text-primary-dark mb-4">
               Fill In Details
             </h2>
             <div className="space-y-4">
@@ -146,7 +146,7 @@ export default function MessageGenerator({
                       handlePlaceholderChange(p, e.target.value)
                     }
                     placeholder={`Enter ${formatPlaceholderLabel(p).toLowerCase()}...`}
-                    className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                   />
                 </div>
               ))}
@@ -160,7 +160,7 @@ export default function MessageGenerator({
         {selectedTemplate ? (
           <div className="bg-white rounded-xl border border-slate-200 p-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-blue-900">
+              <h2 className="text-lg font-semibold text-primary-dark">
                 Message Preview
               </h2>
               <button
@@ -168,7 +168,7 @@ export default function MessageGenerator({
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   copied
                     ? "bg-green-500 text-white"
-                    : "bg-blue-900 text-white hover:bg-blue-800"
+                    : "bg-primary-dark text-white hover:bg-primary"
                 }`}
               >
                 {copied ? "Copied!" : "Copy to Clipboard"}

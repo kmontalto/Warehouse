@@ -26,7 +26,7 @@ export default async function SchedulePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6">
-        <h1 className="text-3xl font-extrabold text-blue-900">Schedule</h1>
+        <h1 className="text-3xl font-extrabold text-primary-dark">Schedule</h1>
         <p className="mt-1 text-slate-500">
           All games, practices, and tournaments
         </p>
